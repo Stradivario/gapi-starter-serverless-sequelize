@@ -1,6 +1,6 @@
 {
   "name": "@gapi/starter-serverless-sequelize",
-  "version": "0.7.204",
+  "version": "0.7.230",
   "description": " ",
   "main": "index.js",
   "scripts": {
@@ -25,9 +25,9 @@
   "author": "Kristiyan Tachev",
   "license": "MIT",
   "dependencies": {
-    "@gapi/core": "^0.7.229",
-    "@gapi/microservices": "^0.7.229",
-    "@gapi/sequelize": "^0.7.229",
+    "@gapi/core": "^0.7.230",
+    "@gapi/microservices": "^0.7.230",
+    "@gapi/sequelize": "^0.7.230",
     "rxjs": "^5.5.6",
     "typescript": "^2.7.1"
   },
