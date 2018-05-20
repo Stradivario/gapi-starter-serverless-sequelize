@@ -1,0 +1,82 @@
+{
+  "name": "@gapi/starter-serverless-sequelize",
+  "version": "0.7.203",
+  "description": " ",
+  "main": "index.js",
+  "scripts": {
+    "postpublish": "git push ssh://git@gitlab.youvolio.com:522/gapi/starter-serverless-sequelize.git && git push --tags && git push ssh://git@gitlab.youvolio.com:522/gapi/starter-serverless-sequelize.git --tags",
+    "start": "gapi start",
+    "start:prod": "gapi start --prod",
+    "stop:prod": "gapi stop --prod",
+    "start:serverless": "sls offline",
+    "deploy:serverless:prod": "sls deploy -v --verbose --stage prod",
+    "deploy:serverless": "sls deploy -v --verbose",
+    "start:docker": "gapi app start",
+    "stop:docker": "gapi app stop",
+    "build:docker": "gapi app build",
+    "start:workers": "gapi workers start",
+    "stop:workers": "gapi workers stop ",
+    "pretest": "npm run lint",
+    "lint": "tslint -c tslint.json 'src/**/*.{ts,tsx}'",
+    "test": "gapi test --before",
+    "test:prod": "gapi test --prod --before",
+    "test-watch": "gapi test --before && gapi test --watch"
+  },
+  "author": "Kristiyan Tachev",
+  "license": "MIT",
+  "dependencies": {
+    "@gapi/core": "^0.7.229",
+    "@gapi/microservices": "^0.7.229",
+    "@gapi/sequelize": "^0.7.229",
+    "rxjs": "^5.5.6",
+    "typescript": "^2.7.1"
+  },
+  "devDependencies": {
+    "@types/hapi": "^17.0.12",
+    "@types/jest": "^22.2.0",
+    "graphql-tester": "0.0.5",
+    "jest": "^22.4.2",
+    "jest-cli": "^22.4.2",
+    "serverless-offline": "^3.21.1",
+    "ts-jest": "^22.4.1",
+    "ts-lint": "^4.5.1"
+  },
+  "nodemonConfig": {
+    "ignore": [
+      "./src/**/*.spec.ts"
+    ],
+    "verbose": true,
+    "exec": "ts-node ./src/main.ts",
+    "watch": [
+      "./src/**/*.ts"
+    ],
+    "events": {
+      "restart": "sleep 5 && gapi schema introspect"
+    },
+    "ext": "ts"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "testPathIgnorePatterns": [
+      "/node_modules/"
+    ],
+    "coverageReporters": [
+      "lcov",
+      "html"
+    ],
+    "rootDir": "./",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "json",
+      "node"
+    ],
+    "transform": {
+      "\\.(ts|tsx)$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    },
+    "testRegex": "/src/.*\\.spec.(ts|tsx|js)$",
+    "verbose": true,
+    "collectCoverage": true
+  }
+}
