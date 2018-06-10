@@ -25,9 +25,9 @@
   "author": "Kristiyan Tachev",
   "license": "MIT",
   "dependencies": {
-    "@gapi/core": "^0.7.271",
-    "@gapi/microservices": "^0.7.271",
-    "@gapi/sequelize": "^0.7.271",
+    "@gapi/core": "^0.7.273",
+    "@gapi/microservices": "^0.7.273",
+    "@gapi/sequelize": "^0.7.273",
     "rxjs": "^5.5.6",
     "typescript": "^2.7.1"
   },
