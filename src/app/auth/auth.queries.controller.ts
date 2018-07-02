@@ -1,12 +1,12 @@
-import { GapiController, Type, Query, GraphQLNonNull, GraphQLString, Public } from '@gapi/core';
-import { UserTokenType } from '../user/types/user-login.type';
-import { AuthPrivateService } from '../core/services/auth/auth.service';
+import { Controller, Type, Query, GraphQLNonNull, Public, GraphQLString } from '@gapi/core';
+import { AuthService } from '../core/services/auth/auth.service';
+import { UserTokenType } from './auth.type';
 
-@GapiController()
+@Controller()
 export class AuthQueriesController {
 
     constructor(
-        private authService: AuthPrivateService
+        private authService: AuthService
     ) { }
 
     @Type(UserTokenType)

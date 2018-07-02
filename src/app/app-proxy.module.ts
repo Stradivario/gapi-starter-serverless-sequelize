@@ -1,19 +1,15 @@
 
-import { GapiModule } from '@gapi/core';
+import { Module } from '@gapi/core';
 import { CoreModule } from './core/core.module';
-import { GapiMicroserviceModule } from '@gapi/microservices';
+import { MicroserviceModule } from '@gapi/microservices';
 
-@GapiModule({
+@Module({
     imports: [
         CoreModule,
-        GapiMicroserviceModule.forRoot([
+        MicroserviceModule.forRoot([
             {
                 name: 'auth-microservice',
                 link: `${process.env.AWS_CLOUD_LINK}/auth/graphql`
-            },
-            {
-                name: 'user-microservice',
-                link: `${process.env.AWS_CLOUD_LINK}/user/graphql`
             }
         ])
     ]

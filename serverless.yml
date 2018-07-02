@@ -8,7 +8,7 @@ provider:
 
 functions:
   auth:
-    handler: src/app/auth/main.handler
+    handler: dist/auth/main.handler
     events:
       - http:
           path: "/auth/{proxy+}"
@@ -17,16 +17,16 @@ functions:
           integration: lambda-proxy
     memorySize: 128
     timeout: 10
-  user:
-    handler: src/app/user/main.handler
-    events:
-      - http:
-          path: "/user/{proxy+}"
-          method: any
-          cors: true
-          integration: lambda-proxy
-    memorySize: 128
-    timeout: 10
+  # user:
+  #   handler: dist/user/main.handler
+  #   events:
+  #     - http:
+  #         path: "/user/{proxy+}"
+  #         method: any
+  #         cors: true
+  #         integration: lambda-proxy
+  #   memorySize: 128
+  #   timeout: 10
 
 plugins:
   - serverless-offline

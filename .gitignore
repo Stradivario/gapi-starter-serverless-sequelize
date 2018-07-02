@@ -5,6 +5,8 @@
 /tmp
 /out-tsc
 /prod
+.cache
+.serverless
 *.js
 *.js.map
 # dependencies

@@ -1,9 +1,13 @@
-import { Bootstrap } from '@gapi/core';
+import { BootstrapFramework, Container, HAPI_SERVER } from '@gapi/core';
 import { format } from 'url';
+import { Server } from 'hapi';
+import { FrameworkImports } from '../../framework-imports';
 import { AuthMicroserviceModule } from './auth.module';
-const App = Bootstrap(AuthMicroserviceModule);
+
+const App = BootstrapFramework(AuthMicroserviceModule, [FrameworkImports], { init: true }).toPromise();
+
 export const handler = async (event, context, callback) => {
-    const app = await App;
+    await App;
     let url = format({
         pathname: event.path,
         query: event.queryStringParameters
@@ -21,7 +25,7 @@ export const handler = async (event, context, callback) => {
         result: null
     };
     try {
-        res = await app.server.inject(options);
+        res = await Container.get<Server>(HAPI_SERVER).inject(options);
     } catch (e) {
         console.error('ERROR', JSON.stringify(e));
     }

@@ -36,6 +36,10 @@ npm start
 ```
 
 #### To deploy to staging or production type:
+This will run Parcel and will Bundle your lambdas to single file inside `dist` folder
+example: src/user/main.ts will be bundled inside dist/user/main.js with main.map
+example2 src/auth/main.ts will be bundled inside dist/auth/main.js with main.map
+Then the lambdas will be deployed based on your serverless.yml configuration
 
 staging
 ```bash
@@ -50,11 +54,11 @@ npm run deploy:serverless:prod
 #### Adding microservices inside `src/app/app-proxy.module.ts`
 
 ```typescript
-import { GapiModule } from '@gapi/core';
+import { Module } from '@gapi/core';
 import { CoreModule } from './core/core.module';
 import { GapiMicroserviceModule } from '@gapi/microservices';
 
-@GapiModule({
+@Module({
     imports: [
         CoreModule,
         GapiMicroserviceModule.forRoot([
@@ -145,7 +149,7 @@ tsc
 
 Simple as that :) 
 
-Bundle will be somewhere between 30-32 mb.The basic concept is that you can create many functions related with same project run them as SingleServer but when you deploy them every module is independent microservice.In the end you create PROXY server with Microservices which MERGES Both Microservices Lambdas as a Single Endpoint GraphQL
+Bundle will be somewhere between 18-20 mb.The basic concept is that you can create many functions related with same project run them as SingleServer but when you deploy them every module is independent microservice.In the end you create PROXY server with Microservices which MERGES Both Microservices Lambdas as a Single Endpoint GraphQL
 
 Njoy! :)
 

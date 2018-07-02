@@ -18,7 +18,9 @@
     column: number;
   }
 
-  
+  /**
+    description: Query type for all get requests which will not change persistent data
+  */
   export interface IQuery {
     __typename?: "Query";
     login: IUserTokenType | null;
@@ -61,7 +63,9 @@
     language: string;
 }
 
-  
+  /**
+    description: Mutation type for all requests which will change persistent data
+  */
   export interface IMutation {
     __typename?: "Mutation";
     destroyUser: IUserType | null;
@@ -81,7 +85,9 @@
     message: string | null;
 }
 
-  
+  /**
+    description: Subscription type for all rabbitmq subscriptions via pub sub
+  */
   export interface ISubscription {
     __typename?: "Subscription";
     subscribeToUserMessagesBasic: IUserMessage | null;

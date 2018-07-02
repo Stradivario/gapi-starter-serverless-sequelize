@@ -3,16 +3,16 @@ config:
   app: 
     
     local:
-      API_PORT: 9000
+      API_PORT: 9001
       API_CERT: ./cert.key
       NODE_ENV: local
-      AMQP_HOST: ec2-13-225-218-251.us-east-2.compute.amazonaws.com
+      AMQP_HOST: ec2-18-221-238-251.us-east-2.compute.amazonaws.com
       AMQP_PORT: 5672
       DB_PORT: 5432
       DB_NAME: postgres
-      DB_HOST: yourenvironemnt.cobu1srvrp5s.us-east-2.rds.amazonaws.com
-      DB_USERNAME: dbuser
-      DB_PASSWORD: dbuserpass
+      DB_HOST: phoneumdev.cobu7srvrp5s.us-east-2.rds.amazonaws.com
+      DB_USERNAME: phoneumdev
+      DB_PASSWORD: Phoneum!123456
       GRAPHIQL: true
       ENDPOINT_TESTING: http://localhost:9000/graphql
       TOKEN_TESTING: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImtyaXN0aXFuLnRhY2hldkBnbWFpbC5jb20iLCJzY29wZSI6WyJBRE1JTiJdLCJpZCI6MSwiaWF0IjoxNTE2OTk2MzYxfQ.7ANr5VHrViD3NkCaDr0nSWYwk46UAEbOwB52pqye4AM
@@ -49,7 +49,7 @@ config:
       GRAPHIQL_TOKEN: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImtyaXN0aXFuLnRhY2hldkBnbWFpbC5jb20iLCJpZCI6MSwic2NvcGUiOlsiQURNSU4iXSwiaWF0IjoxNTIwMjkxMzkyfQ.9hpIDPkSiGvjTmUEyg_R_izW-ra2RzzLbe3Uh3IFsZg
     
     lambda-proxy-staging:
-      AWS_CLOUD_LINK: 'https://aiey6imalh.execute-api.us-east-2.amazonaws.com/staging'
+      AWS_CLOUD_LINK: 'https://x2kwj8rcjh.execute-api.us-east-2.amazonaws.com/staging'
       DISABLE_EFFECTS: 'true'
       API_PORT: 9000
       API_CERT: ./cert.key
@@ -144,7 +144,10 @@ commands:
   proxy:
     staging: gapi start --lambda-proxy-staging --path=src/main-proxy.ts
     prod: gapi start --lambda-proxy-production --path=src/main-proxy.ts
-
+  lambdas:
+    build: parcel build src/main.ts --target node --out-dir dist/main
+    build-auth: parcel build src/app/auth/main.ts --target node --out-dir dist/auth
+    build-user: parcel build src/app/user/main.ts --target node --out-dir dist/user
 
 # You can define your custom commands for example 
 # commands:

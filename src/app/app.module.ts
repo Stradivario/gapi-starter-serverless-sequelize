@@ -1,14 +1,12 @@
 
-import { GapiModule } from '@gapi/core';
+import { Module } from '@gapi/core';
 import { AuthMicroserviceModule } from './auth/auth.module';
-import { UserMicroserviceModule } from './user/user.module';
 import { CoreModule } from './core/core.module';
 
-@GapiModule({
+@Module({
     imports: [
         CoreModule,
-        AuthMicroserviceModule,
-        UserMicroserviceModule
+        AuthMicroserviceModule
     ]
 })
 export class AppModule { }
