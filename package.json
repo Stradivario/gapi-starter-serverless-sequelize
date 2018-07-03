@@ -1,6 +1,6 @@
 {
   "name": "@gapi/starter-serverless-sequelize",
-  "version": "0.7.297",
+  "version": "1.0.0",
   "description": " ",
   "main": "index.js",
   "scripts": {
@@ -11,7 +11,7 @@
     "start:serverless": "sls offline start",
     "deploy:serverless:prod": "npm run build:lambdas && sls deploy -v --verbose --stage prod",
     "deploy:serverless": "npm run build:lambdas && sls deploy -v --verbose",
-    "build:lambdas":"gapi lambdas build-auth && gapi lambdas build-user",
+    "build:lambdas": "gapi lambdas build-auth && gapi lambdas build-user",
     "start:docker": "gapi app start",
     "stop:docker": "gapi app stop",
     "build:docker": "gapi app build",
