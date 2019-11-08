@@ -30,11 +30,13 @@
     "@gapi/core": "^1.8.18",
     "@gapi/microservices": "^1.8.18",
     "@gapi/sequelize": "^1.8.18",
+    "graphql":"^14.5.8",
     "pg": "^6.4.2"
   },
   "devDependencies": {
     "@types/hapi": "^17.0.12",
     "@types/jest": "^22.2.0",
+    "@types/graphql": "^14.5.0",
     "@types/node": "^10.5.1",
     "graphql-tester": "0.0.5",
     "typescript": "3.0.1",
